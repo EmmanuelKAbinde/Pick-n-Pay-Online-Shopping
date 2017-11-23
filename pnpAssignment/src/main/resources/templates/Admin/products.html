@@ -1,0 +1,302 @@
+<head>
+<title>Add Products</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/tab.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+ <link th:if="${mode == 'development'}" rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     
+	<script type="text/javascript">"src/main/resources/static/app/bookings.controller.js"</script>  
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/bookings.controller.js" th:src="@{/app/bookings.controller.js}"></script>
+
+
+</head>
+
+
+
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: hsla(9, 100%, 64%, 0.6);
+}
+</style>
+
+<body  ng-app="myapp" ng-controller="myappcontroller" >
+
+	<div  style="margin-top:15px; background-color: #CF000F;color: #E4F1FE; position : sticky"  align = "right">
+					<span th:utext="${userName}"></span>
+						<form th:action="@{/logout}" method="get">
+			<button class="btn btn-danger " name="registration"
+				type="Submit"  style="right: 0px; top: 30px;">Logout</button>
+		</form>
+		
+				</div>	
+				
+	
+	<div>
+	
+	<a href="/Admin/home"> <img th:src="@{/images/logo.jpg}"  width="200" height="70" alt="logo  " /> </a> 
+	 
+	</div>
+
+	<div>
+	
+
+<ul>
+   
+     <li><a href="/Admin/ProductCategory">Add Product Category</a></li>
+     <li><a href="/Admin/Driver">Add driver</a></li>
+</ul>
+
+</div>
+
+
+<ul>
+
+<li>
+
+	<h3>ADD PRODUCTS</h3>
+	<form ng-submit="processProduct">
+		<div class="table-responsive">
+			<table class="table table-bordered" style="width: 500px">
+			
+			
+				<tr>
+					<td>Product Code</td>
+					<td><input type="number" id="productCode"
+						ng-model="productform.productCode" size="30" /></td>
+				</tr>
+                                <tr>
+					<td>Product Name</td>
+					<td><input type="text" id="productName"
+						ng-model="productform.productName" size="30" /></td>
+				</tr>
+				
+				              <tr>
+					<td>Product Description</td>
+					<td><input type="text" id="productDescription"
+						ng-model="productform.productDescription" size="30" /></td>
+				</tr>
+                    
+                                  <tr>
+					<td>product Price</td>
+					<td><input type="text" id="productPrice"
+						ng-model="productform.productPrice" size="30" /></td>
+				</tr>
+                    
+                     	<tr>
+					<td>product Volume</td>
+					<td><input type="text" id="productVolume"
+						ng-model="productform.productVolume" size="30" /></td>
+				</tr>
+                    
+				
+				              <tr>
+					<td>product Volume Type</td>
+					<td><input type="text" id="productVolumeType"
+						ng-model="productform.productVolumeType" size="30" /></td>
+				</tr>
+                    
+                    <tr>
+                    	<td> product Quantity </td>
+					<td><input type="number" id="productQuantity"
+						ng-model="InventoryProductform.productQuantity" size="30" /></td>
+				</tr>
+                    
+                    
+                                  <tr>
+					<td>product Exp Date</td>
+					<td><input type="date" id="productExpDate"
+						ng-model="productform.productExpDate" size="30" /></td>
+				</tr>
+				
+                    
+                               <tr>
+					<td>product Category</td>
+					<td><input type="text" id="productCategoryCode"
+						ng-model="productform.productCategoryCode" size="30" /></td>
+				</tr>
+				
+				               <tr>
+					<td>brand</td>
+					<td><input type="text" id="brandCode"
+						ng-model="productform.brandCode" size="30" /></td>
+				</tr>
+                    
+                               <tr>
+					<td>product Image url</td>
+				
+<td>
+ <input type="file" id="img" accept="image/png/jpeg" >
+</td>
+				</tr>
+                       
+                      
+            
+				<tr>
+					<td colspan="2"><input type="submit"
+						class="btn btn-primary btn-sm" ng-click="processProduct()"
+						value="Add/ Update Product"/> </td>
+				</tr>
+				
+			</table>
+		</div>
+		
+			</form>
+
+ </li>
+
+
+	
+	
+	<li> <a    >   </a>       </li>
+		<li><a    >   </a>       </li>
+		<li><a    >   </a>       </li>
+		
+		
+		<li>
+		
+			<h3>CATEGORIES</h3>
+<table class="table table-bordered" style="width: 200px;">
+		<tr>
+				<th>Category Code</th>
+				<th>Category Description</th>
+				</tr>
+
+			<tr ng-repeat="productCategory in Category">
+			<td>	{{ 	productCategory.productCategoryCode }}	 </td>
+				<td>{{ 	productCategory.categotyDescription }}
+				
+				</td>
+		
+		<td><a ng-click="SelectCategory(productCategory)" class="btn btn-primary btn-sm">Select</a>
+					</td>
+			
+			 
+                          
+				
+			</tr>
+		</table>
+
+		
+		</li>
+		
+		
+		
+
+</ul>
+
+
+<div align = "center" class="table-responsive">
+<h3>PRODUCTS</h3>
+		<table class="table table-bordered" style="width: 600px;">
+			<tr>
+			
+			<th></th>
+				<th>Code</th>
+				<th>Name</th>
+				
+				<th>Description</th>
+				<th>Price</th>
+           
+           <th>Product Volume</th>
+			
+			<th>Exp Date</th>
+				<th>Product Category</th>
+				
+				<th>Brand</th>
+			
+            <th>Quantity</th>
+	
+           
+			</tr>
+			
+			
+			<tr  ng-repeat = "prod in PProducts " >
+					<td> <span><img  src= "{{ prod.productImage }}"> </span> </td>
+				<td>{{ 	prod.productCode }}</td>
+				<td>{{ prod.productName}}</td>
+					<td>{{ 	prod.productDescription }}</td>
+				<td>R{{ prod.productPrice}}</td>
+					<td>{{ 	prod.productVolume }}{{ prod.productVolumeType}}</td>
+						<td>{{ 	prod.productExpDate }}</td>
+				<td>{{ prod.productCategoryCode}}</td>
+				<td>{{ prod.brandCode}}</td>
+				
+			
+				
+					<td >
+			
+			
+			{{ prod.productQuantity}} </td>
+				
+	<td><a ng-click="editProduct(prod)" class="btn btn-primary btn-sm">Edit</a>
+					</td>
+			
+			 	<td><a ng-click="DeleteProduct(prod)" class="btn btn-danger btn-sm">Delete</a>
+					</td>
+				
+			
+		
+			
+			
+				
+			</tr>
+			<tr>
+			
+			</tr>
+			
+			
+		</table>
+	</div>
+
+		
+
+
+</body>
+</html>
